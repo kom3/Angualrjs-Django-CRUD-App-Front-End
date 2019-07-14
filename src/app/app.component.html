@@ -1,0 +1,42 @@
+
+<div style="padding: 20px;">
+    <h1 style="text-align: center;color: red">Click on the ID to edit</h1>
+
+Title: <input type="text" [(ngModel)]="selectedmovie.title"/><br><br>
+
+Description: <input type="text" [(ngModel)]="selectedmovie.desc"/><br><br>
+
+Year: <input type="text" [(ngModel)]="selectedmovie.year"/><br><br>
+
+<button *ngIf="selectedmovie.id !=-1" (click)="updateMovieclicked()">Update Movie</button>
+
+<button *ngIf="selectedmovie.id ==-1" (click)="createMovie()">Create Movie</button>
+<button *ngIf="selectedmovie.id !=-1" (click)="deleteMovie()">Delete Movie</button>
+ </div>
+
+
+<br><br>
+
+<div style="text-align: center">
+
+<h2>LIST OF MOVIES:</h2>
+</div>
+
+<table>
+    <tr style="color: brown">
+        <th>ID &nbsp;&nbsp;</th>
+        <th>Movie Name &nbsp;&nbsp;</th>
+        <th>Description &nbsp;&nbsp;</th>
+        <th>year &nbsp;&nbsp;</th>
+    </tr>
+    <tr *ngFor="let movie of movies" style="color: green">
+        <td (click)="movieClicked(movie)">{{movie.id}} &nbsp;&nbsp;</td>
+        <td>{{movie.title}} &nbsp;&nbsp;</td>
+        <td>{{movie.desc}} &nbsp;&nbsp;</td>
+        <td>{{movie.year}}</td>
+
+    </tr>
+
+</table>
+<br><br>
+
